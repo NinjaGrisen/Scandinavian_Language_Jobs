@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div(style="background-image: url(/images/athens.jpg)" class="city__img")
+    div.city__image-content
+      h3= city.country
+      h1= city.name
+  div.text-block
+    
+    p.city__desc= city.desc
+
+  div.job__wrapper.job__wrapper--country-page
+    each job in jobs
+      if job.countryName == city.country
+        div.job__item.job__item--country-page
+          a(href="/find-job/#{job.name}")
+            h2= job.name
+            p= job.shortDesc
+            p(class="job__location")= job.cityName + ' -'
+            p(class="job__location")= job.countryName
+            span.job__arrow &rarr;

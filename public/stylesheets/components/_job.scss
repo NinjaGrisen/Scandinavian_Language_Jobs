@@ -1,0 +1,122 @@
+.job {
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto $space-bottom;
+    padding: 0 $size-normal;
+
+    &--country-page {
+      justify-content: center;
+    }
+  }
+
+  &__heading {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto $size-normal;
+    padding: 0 $size-normal;
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 9px;
+    width: calc(33% - 7px);
+    background: darken(white, 1);
+    border: 3px solid white;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1), -1px -1px 3px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: #dbf4fd;
+      transition: all 0.25s ease;
+    }
+
+    @media (max-width: 600px) {
+      width: calc(50% - 7px);
+    }
+
+    @media (max-width: 440px) {
+      width: 100%;
+      max-width: 290px;
+    }
+
+    &--country-page {
+      width: calc(50% - 7px);
+      max-width: 330px;
+      margin: 3.5px;
+
+      &:hover {
+        background: #dbf4fd;
+        transition: all 0.25s ease;
+      }
+
+      @media (max-width: 440px) {
+        width: 100%;
+        max-width: 290px;
+      }
+    }
+
+    &--promoted {
+      background: #dbf4fd;
+      font-size: 3rem;
+    }
+
+    &.job__item--promoted {
+      &:after {
+        color: rgba(black, 0.1);
+      }
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      color: black;
+      text-decoration: none;
+      padding: 60px 12px 12px;
+
+      &:hover {
+        .job__arrow {
+          opacity: 1;
+        }
+      }
+    }
+
+    h3 {
+      padding: 18px 11px;
+    }
+
+    &:after {
+      content: "-0" counter(section) "-";
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      font-size: 30px;
+      font-family: "Inconsolata", monospace;
+      color: rgba(black, 0.1);
+      counter-increment: section;
+      pointer-events: none;
+    }
+  }
+
+  &__location {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: rgba(black, 0.3);
+  }
+  &__arrow {
+    float: right;
+    font-size: 45px;
+    position: absolute;
+    right: 22px;
+    bottom: 19px;
+    color: rgba(black, 0.3);
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+}

@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    
+  body
+    div.main-wrapper
+      div.toggle-menu
+        span.toggle-menu__icon
+      block header
+        div.header
+          nav
+            each item in h.menu
+              a(href="#{item.slug}")=item.title
+
+          nav.cities
+            each city in h.cities
+              a(href="#{city.slug}")=city.title
+      div.wrapper
+        block content
+    
+    script(src="/javascripts/index.js")
+    

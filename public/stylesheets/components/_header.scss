@@ -1,0 +1,114 @@
+.header {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  height: 100vh;
+  background: white;
+  box-shadow: 0 0 9px rgba(black, 0.1);
+  width: 241px;
+  transition: all 0.25s ease;
+  z-index: 9;
+
+  @media (max-width: 870px) {
+    transform: translateX(-100%);
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+      padding: $size-normal $size-double;
+      text-decoration: none;
+      color: black;
+      word-spacing: -3px;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 4px;
+        width: 0;
+        height: 3px;
+        background: black;
+        transition: all 0.25s ease;
+      }
+
+      &:hover {
+        font-weight: bold;
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+
+    &.cities {
+      border-top: 1px solid #ebebeb;
+    }
+  }
+}
+
+.toggle-menu {
+  position: fixed;
+  display: none;
+  width: 45px;
+  height: 45px;
+  padding: 6px;
+  margin: 6px;
+  background: #dbf4fd;
+  transform: translateX(-100%);
+  cursor: pointer;
+  z-index: 99;
+
+  @media (max-width: 870px) {
+    display: block;
+    transform: translateX(0);
+  }
+
+  &.active {
+    .toggle-menu__icon {
+      width: 0;
+
+      &:before {
+        transform-origin: center;
+        transform: rotate(-45deg);
+      }
+      &:after {
+        top: 9px;
+        transform-origin: center;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__icon {
+    top: 5px;
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: black;
+    transition: all 0.25s ease;
+
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 30px;
+      height: 3px;
+      background: black;
+      transition: all 0.25s 0.25s ease;
+    }
+
+    &:after {
+      top: 18px;
+    }
+  }
+}

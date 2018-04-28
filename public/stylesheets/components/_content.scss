@@ -1,0 +1,20 @@
+.main-wrapper {
+  display: flex;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 0 0 241px;
+
+  @media (max-width: 870px) {
+    transition: all 0.25s ease;
+    margin: 50px 0 0 0;
+  }
+}
+
+.text-block {
+  max-width: 610px;
+  width: 100%;
+  margin: 0 auto $space-bottom;
+  padding: 0 $size-normal;
+}

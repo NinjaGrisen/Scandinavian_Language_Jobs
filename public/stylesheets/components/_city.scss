@@ -1,0 +1,36 @@
+.city {
+  &__img {
+    position: relative;
+    height: 420px;
+    margin-bottom: $space-bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media (max-width: 870px) {
+      margin-top: -50px;
+    }
+  }
+
+  &__image-content {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    padding: $size-normal;
+    height: calc(100% - 80px);
+
+    h1 {
+      margin-top: -15px;
+      padding: 0 12px;
+      background: white;
+      font-size: 5rem;
+      text-align: left;
+    }
+
+    h3 {
+      display: inline-block;
+      padding: 12px;
+      background: white;
+    }
+  }
+}
