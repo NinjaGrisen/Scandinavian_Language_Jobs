@@ -39,10 +39,12 @@
         transition: all 0.25s ease;
       }
 
-      &:hover {
-        font-weight: bold;
-        &:after {
-          width: 100%;
+      @media (pointer: fine) {
+        &:hover {
+          font-weight: bold;
+          &:after {
+            width: 100%;
+          }
         }
       }
     }

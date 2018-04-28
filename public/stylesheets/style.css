@@ -69,10 +69,11 @@ body {
         height: 3px;
         background: black;
         transition: all 0.25s ease; }
-      .header nav a:hover {
-        font-weight: bold; }
-        .header nav a:hover:after {
-          width: 100%; }
+      @media (pointer: fine) {
+        .header nav a:hover {
+          font-weight: bold; }
+          .header nav a:hover:after {
+            width: 100%; } }
     .header nav.cities {
       border-top: 1px solid #ebebeb; }
 
@@ -161,9 +162,10 @@ body {
   background: #fcfcfc;
   border: 3px solid white;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1), -1px -1px 3px rgba(0, 0, 0, 0.1); }
-  .job__item:hover {
-    background: #dbf4fd;
-    transition: all 0.25s ease; }
+  @media (pointer: fine) {
+    .job__item:hover {
+      background: #dbf4fd;
+      transition: all 0.25s ease; } }
   @media (max-width: 600px) {
     .job__item {
       width: calc(50% - 7px); } }
@@ -175,9 +177,10 @@ body {
     width: calc(50% - 7px);
     max-width: 330px;
     margin: 3.5px; }
-    .job__item--country-page:hover {
-      background: #dbf4fd;
-      transition: all 0.25s ease; }
+    @media (pointer: fine) {
+      .job__item--country-page:hover {
+        background: #dbf4fd;
+        transition: all 0.25s ease; } }
     @media (max-width: 440px) {
       .job__item--country-page {
         width: 100%;
@@ -193,8 +196,9 @@ body {
     color: black;
     text-decoration: none;
     padding: 60px 12px 12px; }
-    .job__item a:hover .job__arrow {
-      opacity: 1; }
+    @media (pointer: fine) {
+      .job__item a:hover .job__arrow {
+        opacity: 1; } }
   .job__item h3 {
     padding: 18px 11px; }
   .job__item:after {

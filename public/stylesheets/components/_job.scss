@@ -28,9 +28,11 @@
     border: 3px solid white;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1), -1px -1px 3px rgba(0, 0, 0, 0.1);
 
-    &:hover {
-      background: #dbf4fd;
-      transition: all 0.25s ease;
+    @media (pointer: fine) {
+      &:hover {
+        background: #dbf4fd;
+        transition: all 0.25s ease;
+      }
     }
 
     @media (max-width: 600px) {
@@ -47,11 +49,12 @@
       max-width: 330px;
       margin: 3.5px;
 
-      &:hover {
-        background: #dbf4fd;
-        transition: all 0.25s ease;
+      @media (pointer: fine) {
+        &:hover {
+          background: #dbf4fd;
+          transition: all 0.25s ease;
+        }
       }
-
       @media (max-width: 440px) {
         width: 100%;
         max-width: 290px;
@@ -76,9 +79,11 @@
       text-decoration: none;
       padding: 60px 12px 12px;
 
-      &:hover {
-        .job__arrow {
-          opacity: 1;
+      @media (pointer: fine) {
+        &:hover {
+          .job__arrow {
+            opacity: 1;
+          }
         }
       }
     }
