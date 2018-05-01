@@ -58,15 +58,15 @@ exports.sendMail = async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "scanlanjob@gmail.com",
-      pass: "ajabaja1337"
+      user: process.env.MAIL,
+      pass: process.env.MAIL_PASS
     }
   });
 
   const mailOptions = {
-    from: "sender@email.com", // sender address
-    to: "scanlanjob@gmail.com", // list of receivers
-    subject: "Subject of your email", // Subject line
+    from: req.body.email, // sender address
+    to: process.env.MAIL, // list of receivers
+    subject: "New job application", // Subject line
     html: output, // plain text body
     attachments: [
       {
