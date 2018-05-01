@@ -6,6 +6,7 @@ var logger = require("morgan");
 var sassMiddleware = require("node-sass-middleware");
 var helpers = require("./helpers");
 var routes = require("./routes/index");
+var bodyParser = require("body-parser");
 
 var app = express();
 
@@ -14,6 +15,12 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
 app.use(logger("dev"));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

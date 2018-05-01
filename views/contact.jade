@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p= msg
+  form(action="send", 
+      method="post",
+      enctype="multipart/form-data")
+   p
+      input(type="text", name="name")
+   p
+      input(type="text", name="email")
+   p
+      input(type="text", name="phone")
+   p
+      input(type="text", name="age")
+   p
+      input(name="cv" 
+            type="file",
+            accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+   
+   p
+      button(type="submit") Submit
+
+   
