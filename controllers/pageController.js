@@ -75,9 +75,15 @@ exports.sendMail = async (req, res) => {
       }
     ]
   };
-  console.log(req);
-  transporter.sendMail(mailOptions, function(err, info) {
-    if (err) console.log(err);
-    else res.render("contact", { title: "Cotnact", msg: "Success" });
-  });
+  console.log(req.file);
+  let docType = req.file.originalname.split(".");
+  docType = docType[docType.length - 1];
+  if (docType == "doc" || docType == "docx" || docType == "pdf") {
+    transporter.sendMail(mailOptions, function(err, info) {
+      if (err) console.log(err);
+      else res.render("contact", { title: "Cotnact", msg: "Success" });
+    });
+  } else {
+    res.render("contact", { title: "Cotnact", msg: "Invalid doctype" });
+  }
 };
