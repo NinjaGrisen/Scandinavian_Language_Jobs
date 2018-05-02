@@ -6,7 +6,7 @@ const path = require("path");
 
 const multerOptions = {
   storage: multer.memoryStorage(),
-  limits: { fileSize: 3000000 },
+  limits: { fileSize: process.env.FILE_SIZE },
   filteFilter(req, file, next) {
     next(null, true);
   }
