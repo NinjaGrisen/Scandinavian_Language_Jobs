@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p= msg
-  form(action="send", 
+  form(action="sendWithFile", 
       method="post",
       enctype="multipart/form-data")
    p
@@ -17,7 +17,6 @@ block content
       input(name="cv",
             type="file",
             required)
-   
    p
       button(type="submit") Submit
 

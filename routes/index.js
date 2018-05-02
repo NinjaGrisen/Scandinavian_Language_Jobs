@@ -11,9 +11,17 @@ router.get("/cities/:city", pageController.city);
 router.get("/contact", pageController.contact);
 
 router.post(
-  "/send",
+  "/sendWithFile",
   pageController.upload,
   catchErrors(pageController.sendMail)
 );
+router.post(
+  "/find-job/sendWithFile",
+  pageController.upload,
+  catchErrors(pageController.sendMail)
+);
+
+router.post("/sendWithoutFile", pageController.sendMailWithoutFile);
+router.post("/find-job/sendWithoutFile", pageController.sendMailWithoutFile);
 
 module.exports = router;

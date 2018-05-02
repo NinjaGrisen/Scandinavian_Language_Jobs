@@ -6,6 +6,7 @@ const path = require("path");
 
 const multerOptions = {
   storage: multer.memoryStorage(),
+  limits: { fileSize: 3000000 },
   filteFilter(req, file, next) {
     next(null, true);
   }
@@ -42,6 +43,38 @@ exports.city = (req, res) => {
 
 exports.contact = (req, res) => {
   res.render("contact", { title: "contact" });
+};
+
+exports.sendMailWithoutFile = (req, res) => {
+  const output = `
+   <p>Nytt meddelande</p>
+   <h3>Kontakt detalier</h3>
+   <ul>
+    <li>Namn: ${req.body.name}</li>
+    <li>Email: ${req.body.email}</li>
+    <li>Telefon: ${req.body.phone}</li>
+   </ul>
+   `;
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.MAIL,
+      pass: process.env.MAIL_PASS
+    }
+  });
+
+  const mailOptions = {
+    from: req.body.email, // sender address
+    to: process.env.MAIL, // list of receivers
+    subject: "New job application", // Subject line
+    html: output // plain text body
+  };
+
+  transporter.sendMail(mailOptions, function(err, info) {
+    if (err) console.log(err);
+    else res.redirect("back");
+  });
 };
 
 exports.sendMail = async (req, res) => {
@@ -81,9 +114,9 @@ exports.sendMail = async (req, res) => {
   if (docType == "doc" || docType == "docx" || docType == "pdf") {
     transporter.sendMail(mailOptions, function(err, info) {
       if (err) console.log(err);
-      else res.render("contact", { title: "Cotnact", msg: "Success" });
+      res.redirect("back");
     });
   } else {
-    res.render("contact", { title: "Cotnact", msg: "Invalid doctype" });
+    res.status(413).send("Filen måste vara av typ pdf, doc eller docx");
   }
 };

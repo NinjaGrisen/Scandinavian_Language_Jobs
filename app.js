@@ -45,10 +45,19 @@ app.use("/", routes);
 app.use(function(req, res, next) {
   res.status(404).send("This page does not exist");
 });
-
+app.use(function(err, req, res, next) {
+  if (err.code === "LIMIT_FILE_SIZE") {
+    console.log(
+      "LIMIT_FILE_SIZE LIMIT_FILE_SIZE LIMIT_FILE_SIZE LIMIT_FILE_SIZE "
+    );
+  }
+  res.status(413).send("Filen är för stor kan inte överskrida XXXX");
+});
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+  console.log(err.stack);
+
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 

@@ -5,3 +5,34 @@ block content
   p Welcome to #{title}
 
   h2= job.name
+
+  p= msg
+   form(action="sendWithFile", 
+      method="post",
+      enctype="multipart/form-data")
+      p
+         input(type="text", name="name", required)
+      p
+         input(type="text", name="email", required)
+      p
+         input(type="text", name="phone", required)
+      p
+      p
+         input(name="cv",
+               type="file",
+               required)
+      p
+         button(type="submit") Submit
+
+   form(action="sendWithoutFile", 
+      method="post")
+      p
+         input(type="text", name="name", required)
+      p
+         input(type="text", name="email", required)
+      p
+         input(type="text", name="phone", required)
+      p
+         button(type="submit") Submit
+
+
