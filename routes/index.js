@@ -3,6 +3,8 @@ const router = express.Router();
 const pageController = require("../controllers/pageController");
 const { catchErrors } = require("../handlers/errorHandlers");
 
+const multer = require("multer");
+
 router.get("/", pageController.startPage);
 router.get("/find-jobs", pageController.findJobs);
 router.get("/find-job/:work", pageController.findJob);
@@ -12,7 +14,7 @@ router.get("/contact", pageController.contact);
 
 router.post(
   "/sendWithFile",
-  pageController.upload,
+
   catchErrors(pageController.sendMail)
 );
 router.post(
@@ -20,6 +22,8 @@ router.post(
   pageController.upload,
   catchErrors(pageController.sendMail)
 );
+
+//pageController.upload,
 
 router.post("/sendWithoutFile", pageController.sendMailWithoutFile);
 router.post("/find-job/sendWithoutFile", pageController.sendMailWithoutFile);

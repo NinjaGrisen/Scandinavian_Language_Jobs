@@ -11,7 +11,19 @@ const multerOptions = {
     next(null, true);
   }
 };
-exports.upload = multer(multerOptions).single("cv");
+exports.upload = multer({ multerOptions }).fields([
+  {
+    name: "cv",
+    maxCount: 1
+  },
+  {
+    name: "pb",
+    maxCount: 1
+  }
+]);
+
+// exports.upload = multer(multerOptions).single("cv");
+//exports.uploadPb = multer(multerOptions).single("pb");
 
 exports.startPage = (req, res) => {
   const promotedWork = [];
@@ -67,13 +79,17 @@ exports.sendMailWithoutFile = (req, res) => {
   const mailOptions = {
     from: req.body.email, // sender address
     to: process.env.MAIL, // list of receivers
-    subject: "New job application", // Subject line
+    subject: `${req.body.subject}`, // Subject line
     html: output // plain text body
   };
 
   transporter.sendMail(mailOptions, function(err, info) {
-    if (err) console.log(err);
-    else res.redirect("back");
+    if (err) {
+      req.flash("error", err);
+    }
+    req.flash("success", "👍");
+
+    res.redirect("back");
   });
 };
 
@@ -99,24 +115,35 @@ exports.sendMail = async (req, res) => {
   const mailOptions = {
     from: req.body.email, // sender address
     to: process.env.MAIL, // list of receivers
-    subject: "New job application", // Subject line
+    subject: req.body.subject, // Subject line
     html: output, // plain text body
     attachments: [
       {
-        filename: req.file.originalname,
-        content: new Buffer(req.file.buffer)
+        filename: req.files["cv"][0].originalname,
+        content: new Buffer(req.files["cv"][0].buffer)
+      },
+      {
+        filename: req.files["pb"][0].originalname,
+        content: new Buffer(req.files["pb"][0].buffer)
       }
     ]
   };
-  console.log(req.file);
-  let docType = req.file.originalname.split(".");
-  docType = docType[docType.length - 1];
-  if (docType == "doc" || docType == "docx" || docType == "pdf") {
-    transporter.sendMail(mailOptions, function(err, info) {
-      if (err) console.log(err);
-      res.redirect("back");
-    });
-  } else {
-    res.status(413).send("Filen måste vara av typ pdf, doc eller docx");
-  }
+  //  let cv = req.files['cv'].originalname.split(".");
+  //  let pb = req.files['pb'].originalname.split(".");
+  //  pb = pb[pb.length - 1];
+  //  cv = cv[cv.length - 1];
+  //  if (cv == "doc" || cv == "docx" || cv == "pdf") {
+
+  transporter.sendMail(mailOptions, function(err, info) {
+    if (err) {
+      req.flash("error", err);
+    }
+    req.flash("success", "👍");
+
+    res.redirect("back");
+  });
+  //  } else {
+  //    req.flash("error", "Filen måste vara av typ pdf, doc eller docx");
+  //    res.redirect("back");
+  //  }
 };

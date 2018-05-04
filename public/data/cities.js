@@ -6,7 +6,7 @@ const cities = {
     thumb: "/images/athens-thumb.jpg",
     country: "Grekland",
     desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et sem mi. Proin eu lorem sit amet tortor maximus molestie maximus ac ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque in scelerisque elit. Fusce metus lacus, fringilla quis arcu facilisis, lobortis porta mauris. Vivamus sit amet iaculis purus, quis euismod lacus. Ut id euismod mauris. Aliquam erat volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus eu nibh maximus, iaculis turpis nec, congue tortor. Mauris tempus iaculis nibh. Ut maximus massa neque, vel fringilla neque viverra sed. Vestibulum ut ornare orci. Pellentesque tellus eros, dignissim eget tincidunt nec, dapibus quis libero."
+      "Aten med sina fyra miljoner invånare är en stad full med historia och arkitektur att uppleva. Inför Aten-OS rustades staden upp och är idag en modern Europeisk storstad med ett härligt medelhavsklimat, ett nattliv och kulturliv i världsklass. Vår kund har sitt största kontor i Aten och där jobbar människor från en mäng länder i hela Europa. Är du intresserad av att få vänner från olika länder med olika kulturell bakgrund? Dp är Aten staden för dig! Vi som jobbar på Scandinavian Language Jobs har själva erfarenhet av att bo och jobba i Aten, så alla frågor du kan tänkas ha tror vi kunna svara på."
   },
 
   lissabon: {
@@ -16,7 +16,7 @@ const cities = {
     thumb: "/images/lisbon-thumb.jpg",
     country: "Portugal",
     desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et sem mi. Proin eu lorem sit amet tortor maximus molestie maximus ac ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque in scelerisque elit. Fusce metus lacus, fringilla quis arcu facilisis, lobortis porta mauris. Vivamus sit amet iaculis purus, quis euismod lacus. Ut id euismod mauris. Aliquam erat volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus eu nibh maximus, iaculis turpis nec, congue tortor. Mauris tempus iaculis nibh. Ut maximus massa neque, vel fringilla neque viverra sed. Vestibulum ut ornare orci. Pellentesque tellus eros, dignissim eget tincidunt nec, dapibus quis libero."
+      "Med åtta månader av sol är Lissabon en perfekt stad att bo i för dig som gillar varmare breddgrader. Lissabon är en vacker stad där den ligger längst västerut på den Europeiska kontinenten. Den gamla bebyggelsen med stenlagda gator i vackra mönster, stenhus och smala vindlande gator klättrar över de många kullarna ner mot floden och havet. Floden och Atlanten gör att vattnet aldrig är långt borta i Lissabon. Längst kusten, en kort busstur från centrum, finns flera av Europas finaste badorter. Staden är väldigt mångkulturell med människor från många delar av Europa boendes där. Det är enkelt att hitta boende, något som våra partners ofta hjälper till med. Vi som jobbar på Scandinavian Language Jobs har själva erfarenhet av att bo och jobba i Aten, så alla frågor du kan tänkas ha tror vi kunna svara på."
   },
 
   st_julians: {
@@ -26,7 +26,7 @@ const cities = {
     thumb: "/images/valletta-thumb.jpg",
     country: "Malta",
     desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et sem mi. Proin eu lorem sit amet tortor maximus molestie maximus ac ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque in scelerisque elit. Fusce metus lacus, fringilla quis arcu facilisis, lobortis porta mauris. Vivamus sit amet iaculis purus, quis euismod lacus. Ut id euismod mauris. Aliquam erat volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus eu nibh maximus, iaculis turpis nec, congue tortor. Mauris tempus iaculis nibh. Ut maximus massa neque, vel fringilla neque viverra sed. Vestibulum ut ornare orci. Pellentesque tellus eros, dignissim eget tincidunt nec, dapibus quis libero."
+      "Med 300 soldagar per år erbjuder Malta sommar nästan året runt. Det är många svenskar som redan har lämnat kalla Norden för att jobba på denna Medelhavspärla, ca 10 000 svenskar bor på ön, men behovet av svensk arbetskraft finns fortfarande. Har man motivationen så erbjuder den professionella scenen på Malta stora möjligheter till karriär och att snabbt utvecklas. Malta är en välmående ekonomi som erbuder sol och bad från April till November, långa sandstränder men även klippbad mitt i stan. Medelhavet är aldrig långt borta på denna lilla ö. Malta erbjuder ett rikt nattliv, fantastiska restauranger men har även en gammal och händelserik historia som erbjuder många utflyktsmål. Malta är ett av Europas tryggaste länder med väldigt låg brottslighet och att Engelska är ett officiellt språk som alla talar underlättar. Det är extrem lätt att hitta boende. Att hitta lägenhet, tillsammans med betald resa, är något som våra samarbetspartners hjälper till med. Vi som jobbar på Scandinavian Language Jobs har själva erfarenhet av att bo och jobba på Malta, så alla frågor du kan tänkas ha tror vi kunna svara på."
   }
 };
 

@@ -1,8 +1,8 @@
 exports.dump = obj => JSON.stringify(obj, null, 2);
 
 exports.menu = [
-  { slug: "/", title: "Home" },
-  { slug: "/find-jobs", title: "Find Job" },
+  { slug: "/", title: "Om oss" },
+  { slug: "/find-jobs", title: "Lediga jobb" },
   { slug: "/find-staff", title: "Find staff" }
 ];
 

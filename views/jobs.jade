@@ -1,21 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  div.text-block
-    p Are you interested in broaden your experience and working abroad? We at Scandinavian Language Jobs collaborate with companies, all across Europe, which are looking to hire people from Scandinavia. We have different options for you, no matter if you’re looking for a big city or beach lifestyle. All jobs offer you to communicate in your mother tongue at the same time as you’ll experience a new country and culture. 
+   h1= title
+   div.text-block
+      p Are you interested in broaden your experience and working abroad? We at Scandinavian Language Jobs collaborate with companies, all across Europe, which are looking to hire people from Scandinavia. We have different options for you, no matter if you’re looking for a big city or beach lifestyle. All jobs offer you to communicate in your mother tongue at the same time as you’ll experience a new country and culture. 
 
-    h2 Hur det fungerar
-    p We at Scandinavian Language Jobs speak Swedish, but many of our company partners require applications in English, hence please apply in English if nothing else is stated in the job post. Apply now with your CV and we’ll get in touch shortly. 
+      h2 Hur det fungerar
+      p We at Scandinavian Language Jobs speak Swedish, but many of our company partners require applications in English, hence please apply in English if nothing else is stated in the job post. Apply now with your CV and we’ll get in touch shortly. 
   
-  div.job__wrapper#job__wrapper
-    each job in jobs
-        div.job__item
-          a(href="/find-job/#{job.name}")
-            h2= job.name
-            p= job.shortDesc
-            p(class="job__location")= job.cityName + ' -'
-            p(class="job__location")= job.countryName
-            span.job__arrow &rarr;
+      div.job__wrapper#job__wrapper
+         each job in jobs
+            div.job__item
+               a(href="/find-job/#{job.name}")
+                  h2= job.name
+                  p= job.shortDesc
+                  p(class="job__location")= job.cityName + ' -'
+                  p(class="job__location")= job.countryName
+                  span.job__arrow &rarr;
 
 

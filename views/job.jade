@@ -10,6 +10,8 @@ block content
    form(action="sendWithFile", 
       method="post",
       enctype="multipart/form-data")
+      input(type="text" name="subject" style="display:none" value="jobsearch #{title}")
+
       p
          input(type="text", name="name", required)
       p
@@ -22,10 +24,15 @@ block content
                type="file",
                required)
       p
+         input(name="pb",
+               type="file",
+               required)
+      p
          button(type="submit") Submit
 
    form(action="sendWithoutFile", 
       method="post")
+      input(type="text" name="subject" style="display:none" value="jobsearch #{title}  utan attachments")
       p
          input(type="text", name="name", required)
       p
