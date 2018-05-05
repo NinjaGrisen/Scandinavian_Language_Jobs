@@ -11,7 +11,8 @@ const multerOptions = {
     next(null, true);
   }
 };
-exports.upload = multer({ multerOptions }).fields([
+
+const fieldsSettings = [
   {
     name: "cv",
     maxCount: 1
@@ -20,10 +21,8 @@ exports.upload = multer({ multerOptions }).fields([
     name: "pb",
     maxCount: 1
   }
-]);
-
-// exports.upload = multer(multerOptions).single("cv");
-//exports.uploadPb = multer(multerOptions).single("pb");
+];
+exports.upload = multer({ multerOptions }).fields(fieldsSettings);
 
 exports.startPage = (req, res) => {
   const promotedWork = [];
@@ -58,14 +57,21 @@ exports.contact = (req, res) => {
 };
 
 exports.sendMailWithoutFile = (req, res) => {
+  let companyName = "";
+  if (req.body.companyName) {
+    companyName = `<li>Company name: <b>${req.body.companyName}</b></li>`;
+  }
   const output = `
-   <p>Nytt meddelande</p>
    <h3>Kontakt detalier</h3>
    <ul>
-    <li>Namn: ${req.body.name}</li>
-    <li>Email: ${req.body.email}</li>
-    <li>Telefon: ${req.body.phone}</li>
+    <li>Namn: <b>${req.body.name}</b></li>
+    <li>Email: <b>${req.body.email}</b></li>
+    <li>Telefon: <b>${req.body.phone}</b></li>
+    ${companyName}
    </ul>
+    <h3>Message</h3>
+    <p>${req.body.textarea}</p>
+   
    `;
 
   const transporter = nodemailer.createTransport({
@@ -77,10 +83,10 @@ exports.sendMailWithoutFile = (req, res) => {
   });
 
   const mailOptions = {
-    from: req.body.email, // sender address
-    to: process.env.MAIL, // list of receivers
-    subject: `${req.body.subject}`, // Subject line
-    html: output // plain text body
+    from: req.body.email,
+    to: process.env.MAIL,
+    subject: `${req.body.subject}`,
+    html: output
   };
 
   transporter.sendMail(mailOptions, function(err, info) {
@@ -101,6 +107,8 @@ exports.sendMail = async (req, res) => {
     <li>Namn: ${req.body.name}</li>
     <li>Email: ${req.body.email}</li>
     <li>Telefon: ${req.body.phone}</li>
+    <p>Message</p>
+    <p>${req.body.textarea}</p>
    </ul>
    `;
 
@@ -113,10 +121,10 @@ exports.sendMail = async (req, res) => {
   });
 
   const mailOptions = {
-    from: req.body.email, // sender address
-    to: process.env.MAIL, // list of receivers
-    subject: req.body.subject, // Subject line
-    html: output, // plain text body
+    from: req.body.email,
+    to: process.env.MAIL,
+    subject: req.body.subject,
+    html: output,
     attachments: [
       {
         filename: req.files["cv"][0].originalname,
@@ -128,22 +136,27 @@ exports.sendMail = async (req, res) => {
       }
     ]
   };
-  //  let cv = req.files['cv'].originalname.split(".");
-  //  let pb = req.files['pb'].originalname.split(".");
-  //  pb = pb[pb.length - 1];
-  //  cv = cv[cv.length - 1];
-  //  if (cv == "doc" || cv == "docx" || cv == "pdf") {
+  let cv = req.files["cv"][0].originalname.split(".");
+  let pb = req.files["pb"][0].originalname.split(".");
+  pb = pb[pb.length - 1];
+  cv = cv[cv.length - 1];
+  if (
+    cv == "doc" ||
+    cv == "docx" ||
+    (cv == "pdf" && pb == "doc") ||
+    pb == "docx" ||
+    pb == "pdf"
+  ) {
+    transporter.sendMail(mailOptions, function(err, info) {
+      if (err) {
+        req.flash("error", err);
+      }
+      req.flash("success", "👍");
 
-  transporter.sendMail(mailOptions, function(err, info) {
-    if (err) {
-      req.flash("error", err);
-    }
-    req.flash("success", "👍");
-
+      res.redirect("back");
+    });
+  } else {
+    req.flash("error", "Alla filer måste vara av typ pdf, doc eller docx");
     res.redirect("back");
-  });
-  //  } else {
-  //    req.flash("error", "Filen måste vara av typ pdf, doc eller docx");
-  //    res.redirect("back");
-  //  }
+  }
 };

@@ -1,45 +1,58 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+   .text-block
+      h1= title
+      p Welcome to #{title}
 
-  h2= job.name
+      h2= job.name
 
-  p= msg
    form(action="sendWithFile", 
       method="post",
-      enctype="multipart/form-data")
+      enctype="multipart/form-data"
+      class="form form--desktop")
       input(type="text" name="subject" style="display:none" value="jobsearch #{title}")
-
-      p
-         input(type="text", name="name", required)
-      p
-         input(type="text", name="email", required)
-      p
-         input(type="text", name="phone", required)
-      p
-      p
+      div.form__input
+         label(for="name") Namn *
+         input(type="text", name="name", required placeholder="Namn")
+      div.form__input
+         label(for="email") Email *
+         input(type="email", name="email", required placeholder="Email")
+      div.form__input
+         label(for="phone") Telefonnummer
+         input(type="tel", name="phone" required placeholder="Telefonnummer")
+      div.form__input--text-area
+         label(for="textarea") Lägg på ett meddelande
+         textarea(name="textarea", cols="30", rows="10" placeholder="Meddelande")
+      div.form__input
+         label(for="cv") Lägg till ditt CV
          input(name="cv",
-               type="file",
-               required)
-      p
+            type="file",
+            required)
+      div.form__input      
+         label(for="cv") Lägg till ditt personliga brev
          input(name="pb",
-               type="file",
-               required)
-      p
-         button(type="submit") Submit
+            type="file",
+            required)
+      button(type="submit") Skicka
 
    form(action="sendWithoutFile", 
-      method="post")
-      input(type="text" name="subject" style="display:none" value="jobsearch #{title}  utan attachments")
-      p
-         input(type="text", name="name", required)
-      p
-         input(type="text", name="email", required)
-      p
-         input(type="text", name="phone", required)
-      p
-         button(type="submit") Submit
+      method="post"
+      class="form form--mobile")
+      input(type="text" name="subject" style="display:none" value="jobsearch #{title} utan attachment")
+      div.form__input
+         label(for="name") Namn *
+         input(type="text", name="name", required placeholder="Namn")
+      div.form__input
+         label(for="email") Email *
+         input(type="email", name="email", required placeholder="Email")
+      div.form__input
+         label(for="phone") Telefonnummer
+         input(type="tel", name="phone" required placeholder="Telefonnummer")
+      div.form__input--text-area
+         label(for="textarea") Lägg på ett meddelande
+         textarea(name="textarea", cols="30", rows="10" placeholder="Meddelande")
+      button(type="submit") Skicka
+      
 
 

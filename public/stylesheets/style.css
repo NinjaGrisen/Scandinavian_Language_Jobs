@@ -309,4 +309,75 @@ body {
   margin-left: 4px;
   padding: 0 10px; }
 
+.flash-messages {
+  position: absolute;
+  right: 12px;
+  top: 12px; }
+  .flash-messages .flash {
+    min-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    background: #e6e6e6;
+    padding: 20px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); }
+    .flash-messages .flash--success {
+      background: #dbf4fd; }
+    .flash-messages .flash--error {
+      background: #f57b7b; }
+    .flash-messages .flash p {
+      margin-bottom: 0; }
+    .flash-messages .flash button {
+      padding-left: 12px;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: rgba(0, 0, 0, 0.8);
+      outline: none; }
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 600px;
+  padding: 0 24px;
+  font-family: "Lato", sans-serif;
+  margin: 0 auto 24px;
+  display: none; }
+  .form label {
+    margin-bottom: 6px; }
+  .form__input {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+    margin: 6px 0; }
+    @media (max-width: 400px) {
+      .form__input {
+        width: 100%; } }
+    .form__input input {
+      padding: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.2); }
+    .form__input--text-area {
+      width: 100%;
+      margin: 6px 0; }
+      .form__input--text-area textarea {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.2); }
+  .form button {
+    border: none;
+    background: #dbf4fd;
+    padding: 13px 30px;
+    font-weight: 600;
+    font-family: "Inconsolata", monospace;
+    font-size: 1rem;
+    border: 1px solid #abe5fa; }
+  @media (max-width: 750px) {
+    .form--mobile {
+      display: flex; } }
+  @media (min-width: 750px) {
+    .form--desktop {
+      display: flex; } }
+  .form--company {
+    display: flex; }
+
 /*# sourceMappingURL=style.css.map */
