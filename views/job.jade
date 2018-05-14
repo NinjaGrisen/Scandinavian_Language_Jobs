@@ -1,11 +1,12 @@
 extends layout
 
 block content
-   .text-block
+   div(style="background-image: url(#{job.image}" class="job-desc__img")
       h1= title
-      p Welcome to #{title}
-
-      h2= job.name
+   .text-block
+      
+      if(job.html)
+         !{job.html}
 
    form(action="sendWithFile", 
       method="post",
@@ -24,13 +25,19 @@ block content
       div.form__input--text-area
          label(for="textarea") Lägg på ett meddelande
          textarea(name="textarea", cols="30", rows="10" placeholder="Meddelande")
+      div
+         input(type="checkbox" required)
+         span
+            |  Jag har läst och accepterar 
+            span.gdpr__span GDPR
       div.form__input
-         label(for="cv") Lägg till ditt CV
+         label(for="cv") Lägg till CV
          input(name="cv",
             type="file",
             required)
+      
       div.form__input      
-         label(for="cv") Lägg till ditt personliga brev
+         label(for="cv") Lägg till personligt brev
          input(name="pb",
             type="file",
             required)
@@ -52,7 +59,17 @@ block content
       div.form__input--text-area
          label(for="textarea") Lägg på ett meddelande
          textarea(name="textarea", cols="30", rows="10" placeholder="Meddelande")
+      div
+         input(type="checkbox" required)
+         span
+            |  Jag har läst och accepterar 
+            span.gdpr__span GDPR
       button(type="submit") Skicka
+
+   .gdpr__module
+      button &times;
+      h3 Random GDRP info
+      p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea alias molestiae molestias consectetur provident obcaecati, earum, possimus blanditiis debitis sequi ab. Explicabo at corporis, consequuntur culpa nisi similique pariatur vero.
       
 
 

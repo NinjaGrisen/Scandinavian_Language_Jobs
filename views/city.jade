@@ -12,7 +12,7 @@ block content
     each job in jobs
       if job.countryName == city.country
         div.job__item.job__item--country-page
-          a(href="/find-job/#{job.name}")
+          a(href="/find-job/#{job.slug}")
             h2= job.name
             p= job.shortDesc
             p(class="job__location")= job.cityName + ' -'

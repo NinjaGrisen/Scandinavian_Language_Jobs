@@ -27,12 +27,28 @@ h1 {
   color: black;
   text-align: center;
   text-transform: capitalize; }
+  @media (max-width: 870px) {
+    h1 {
+      margin-top: 60px;
+      font-size: 2rem; } }
 
 p {
   margin-bottom: 0.8rem; }
 
 body {
   counter-reset: section; }
+  body.module-active {
+    position: relative; }
+    body.module-active:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 99; }
 
 .header {
   position: fixed;
@@ -125,12 +141,15 @@ body {
   display: flex; }
 
 .wrapper {
+  position: relative;
   width: 100%;
-  margin: 0 0 0 241px; }
+  min-height: 100vh;
+  margin: 0 0 0 241px;
+  overflow-x: hidden; }
   @media (max-width: 870px) {
     .wrapper {
       transition: all 0.25s ease;
-      margin: 50px 0 0 0; } }
+      margin: 0; } }
 
 .text-block {
   max-width: 610px;
@@ -142,7 +161,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto 30px;
   padding: 0 12px; }
@@ -254,10 +273,16 @@ body {
     background: white;
     font-size: 5rem;
     text-align: left; }
+    @media (max-width: 870px) {
+      .city__image-content h1 {
+        font-size: 3rem; } }
   .city__image-content h3 {
     display: inline-block;
     padding: 12px;
     background: white; }
+    @media (max-width: 870px) {
+      .city__image-content h3 {
+        margin-top: 50px; } }
 
 .city-promo__wrapper {
   display: flex;
@@ -312,7 +337,8 @@ body {
 .flash-messages {
   position: absolute;
   right: 12px;
-  top: 12px; }
+  top: 12px;
+  z-index: 999; }
   .flash-messages .flash {
     min-width: 200px;
     display: flex;
@@ -370,7 +396,8 @@ body {
     font-weight: 600;
     font-family: "Inconsolata", monospace;
     font-size: 1rem;
-    border: 1px solid #abe5fa; }
+    border: 1px solid #abe5fa;
+    cursor: pointer; }
   @media (max-width: 750px) {
     .form--mobile {
       display: flex; } }
@@ -379,5 +406,71 @@ body {
       display: flex; } }
   .form--company {
     display: flex; }
+
+.gdpr__span {
+  font-weight: bold;
+  border-bottom: 2px solid #dbf4fd;
+  cursor: pointer; }
+
+.gdpr__module {
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 12px);
+  max-width: 634px;
+  width: calc(100% - 24px);
+  margin: 12px;
+  padding: 20px;
+  background: #dbf4fd;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  transform: translate(500%, -50%);
+  transition: all 0.25s ease;
+  z-index: 100; }
+  .gdpr__module__display {
+    transform: translate(-50%, -50%); }
+  .gdpr__module button {
+    position: absolute;
+    right: 6px;
+    top: 0px;
+    border: none;
+    background: none;
+    font-size: 36px;
+    cursor: pointer; }
+
+.job-desc__ul-heading {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 21px; }
+
+.job-desc__ul {
+  margin: 15px 24px 35px; }
+  .job-desc__ul li {
+    font-family: "Inconsolata", monospace;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 5px; }
+
+.job-desc__img {
+  width: 100%;
+  height: 0;
+  padding-bottom: 50vh;
+  margin-bottom: 25px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+  .job-desc__img h1 {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    background: white;
+    padding: 12px;
+    font-size: 4vw; }
+    @media (max-width: 870px) {
+      .job-desc__img h1 {
+        font-size: 5vw; } }
+    @media (max-width: 550px) {
+      .job-desc__img h1 {
+        max-width: calc(100% - 80px);
+        width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */

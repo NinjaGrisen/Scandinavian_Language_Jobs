@@ -31,13 +31,22 @@ exports.startPage = (req, res) => {
       promotedWork.push(Object.entries(jobs)[i][1]);
     }
   }
-  res.render("index", { jobs, promotedWork, cities, title: "About us" });
+  res.render("index", {
+    jobs,
+    promotedWork,
+    cities,
+    title: "Om oss"
+  });
 };
 
 exports.findJobs = (req, res) => {
   res.render("jobs", { title: "För arbetssökande", jobs });
 };
 exports.findJob = (req, res) => {
+  console.log(decodeURI(req.params.work.toLowerCase()));
+
+  console.log(req.params.work.toLowerCase());
+
   const job = jobs[req.params.work.toLowerCase()];
 
   res.render("job", { job, title: job.name });
@@ -138,6 +147,7 @@ exports.sendMail = async (req, res) => {
   };
   let cv = req.files["cv"][0].originalname.split(".");
   let pb = req.files["pb"][0].originalname.split(".");
+  console.log(req.files);
   pb = pb[pb.length - 1];
   cv = cv[cv.length - 1];
   if (
@@ -147,6 +157,13 @@ exports.sendMail = async (req, res) => {
     pb == "docx" ||
     pb == "pdf"
   ) {
+    if (
+      req.files["cv"][0].size > process.env.FILE_SIZE ||
+      req.files["pb"][0].size > process.env.FILE_SIZE
+    ) {
+      req.flash("error", "Filen är för stor, får inte vara större än 1mb");
+      res.redirect("back");
+    }
     transporter.sendMail(mailOptions, function(err, info) {
       if (err) {
         req.flash("error", err);

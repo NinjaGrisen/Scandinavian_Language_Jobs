@@ -23,6 +23,11 @@ h1 {
   color: black;
   text-align: center;
   text-transform: capitalize;
+
+  @media (max-width: 870px) {
+    margin-top: 60px;
+    font-size: 2rem;
+  }
 }
 
 p {

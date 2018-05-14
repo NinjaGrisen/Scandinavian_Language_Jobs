@@ -47,6 +47,7 @@
     font-family: "Inconsolata", monospace;
     font-size: 1rem;
     border: 1px solid darken($color-main, 10);
+    cursor: pointer;
   }
 
   &--mobile {
@@ -63,6 +64,42 @@
 
   &--company {
     display: flex;
+  }
+}
+
+.gdpr {
+  &__span {
+    font-weight: bold;
+    border-bottom: 2px solid $color-main;
+    cursor: pointer;
+  }
+  &__module {
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 12px);
+    max-width: 634px;
+    width: calc(100% - 24px);
+    margin: 12px;
+    padding: 20px;
+    background: #dbf4fd;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    transform: translate(500%, -50%);
+    transition: all 0.25s ease;
+    z-index: 100;
+
+    &__display {
+      transform: translate(-50%, -50%);
+    }
+
+    button {
+      position: absolute;
+      right: 6px;
+      top: 0px;
+      border: none;
+      background: none;
+      font-size: 36px;
+      cursor: pointer;
+    }
   }
 }
 //750

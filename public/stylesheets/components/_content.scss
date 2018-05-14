@@ -3,12 +3,15 @@
 }
 
 .wrapper {
+  position: relative;
   width: 100%;
+  min-height: 100vh;
   margin: 0 0 0 241px;
+  overflow-x: hidden;
 
   @media (max-width: 870px) {
     transition: all 0.25s ease;
-    margin: 50px 0 0 0;
+    margin: 0;
   }
 }
 

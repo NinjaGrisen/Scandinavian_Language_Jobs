@@ -5,7 +5,7 @@ block content
   div.text-block
     p Scandinavian Language Jobs is helping Scandinavian talents to find career opportunities abroad. We have ourselves made the move from Sweden abroad to work and therefore we know it might seem a bit scary, but trust us- it’s worth it!As the same time as we see ourselves as an advisor to Scandinavians who are considering a new job abroad, we see ourselves as a business partner to employers who seek collaboration with a company which knows the Scandinavian candidate market but also understand 
 
-  h2.city-promo__heading Our locations
+  h2.city-promo__heading Var vill du jobba?
   div.city-promo__wrapper
     each city in cities
       div(style="background-image: url(#{city.thumb}" class="city-promo__item")
@@ -13,12 +13,11 @@ block content
           h3= city.name
           p.city-promo__country= city.country
 
-  
-  h2.job__heading Our jobs
+  h2.job__heading Våra jobb
   div.job__wrapper  
     each job in promotedWork
         div.job__item
-          a(href="/find-job/#{job.name}")
+          a(href="/find-job/#{job.slug}")
             h3= job.name
             p= job.shortDesc
             p(class="job__location")= job.cityName + ' -'
@@ -26,4 +25,4 @@ block content
               
     div.job__item.job__item--promoted
       a(href="/find-jobs#job__wrapper")
-        h3 View all
+        h3 Visa alla
