@@ -1,11 +1,12 @@
 // This is just some sample data so you don't have to think of your own!
 const jobs = {
-  svensktalande_game_presenter: {
-    slug: "svensktalande_game_presenter",
+  1: {
     name: "Svensktalande Game Presenter",
     image: "/images/malta-rocks.jpg",
+    imgAlt: "Jobba på Malta",
+    titleSeo: " | Jobba på Malta",
     shortDesc:
-      "Everyones favorite white fish. We will cut it to the size you need and ship it.",
+      "Ta chansen att flytta till soliga Malta. Jobber som Game Presenter erbjuder dig internationell erfarenhet och ett nätverk från hela Europa.",
     promoted: "true",
     cityName: "St Julians",
     countryName: "Malta",
@@ -35,12 +36,13 @@ const jobs = {
      
      <p>Sök nu så kommer du inom kort att bli kontaktad av någon av oss på Scandinavian Language Jobs. </p>`
   },
-  svensktalande_copywriter: {
-    slug: "svensktalande_copywriter",
+  2: {
     name: "Svensktalande Copywriter",
     image: "/images/lisbon-sunset.jpg",
+    imgAlt: "Jobba utomlands",
+    titleSeo: " | Jobba i Lissabon",
     shortDesc:
-      "Everyones favorite white fish. We will cut it to the size you need and ship it.",
+      "Vi söker dig, Copywriter med intresse av SEO, till startup med mål om att förändra e-handeln i Sverige och övriga Europa.",
     promoted: "true",
     cityName: "Lissabon",
     countryName: "Portugal",
@@ -77,12 +79,13 @@ const jobs = {
       
       <p>Sök med CV och portfolio redan idag!</p>`
   },
-  kundtjanstmedarbetare_i_lissabon: {
-    slug: "kundtjanstmedarbetare_i_lissabon",
+  3: {
     name: "Kundtjänstmedarbetare i Lissabon",
     image: "/images/lisbon-bridge.jpg",
+    imgAlt: "Jobba utomlands",
+    titleSeo: " | Jobba i Lissabon",
     shortDesc:
-      "Everyones favorite white fish. We will cut it to the size you need and ship it.",
+      "Servicestjärna! Ta chansen och flytta till sol- och kuststaden Lissabon för att jobba med kundtjänst hos vår kund.",
     promoted: "true",
     cityName: "Lissabon",
     countryName: "Portugal",
@@ -116,12 +119,13 @@ const jobs = {
    </ul>
    <p>Varmt välkommen med CV för att söka jobbet. </p>`
   },
-  svensktalande_saljare: {
-    slug: "svensktalande_saljare",
+  4: {
     name: "Svensktalande Säljare",
     image: "/images/lisbon-bridge.jpg",
+    imgAlt: "Jobba utomlands",
+    titleSeo: " | Jobba i Lissabon",
     shortDesc:
-      "Everyones favorite white fish. We will cut it to the size you need and ship it.",
+      "Nu har du chansen att få internationell erfarenhet kombinerat av ett säljjobb utan provisionstak. Detta i härliga Lissabon.",
     promoted: "true",
     cityName: "Lissabon",
     countryName: "Portugal",
@@ -146,12 +150,13 @@ const jobs = {
    
    <p>Varmt välkommen med din ansökan!</p>`
   },
-  kundtjanstmedarbetare: {
-    slug: "kundtjanstmedarbetare",
+  5: {
     name: "Kundtjänstmedarbetare",
-    image: "/images/malta-architecture.jpg",
+    image: "/images/athens-sunset.jpg",
+    imgAlt: "Jobba utomlands",
+    titleSeo: " | Jobba i Grekland",
     shortDesc:
-      "Big, sweet and tender. True dry-pack scallops from the icey waters of Alaska. About 8-10 per pound",
+      "Vår kund, som nyligen blev utnämnda till Best Place to Work, söker nu nya Kundtjänst-stjärnor till sitt internationella kontor i härliga Aten.",
     promoted: "false",
     cityName: "Aten",
     countryName: "Grekland",
@@ -185,12 +190,13 @@ const jobs = {
     
     <p>Varmt välkommen med CV för att söka jobbet.</p>`
   },
-  svensktalande_sales_agent: {
-    slug: "svensktalande_sales_agent",
+  6: {
     name: "Svensktalande Sales Agent",
-    image: "/images/malta-architecture.jpg",
+    image: "/images/view-of-athens.jpg",
+    imgAlt: "Jobba utomlands",
+    titleSeo: " | Jobba i Grekland",
     shortDesc:
-      "Big, sweet and tender. True dry-pack scallops from the icey waters of Alaska. About 8-10 per pound",
+      "Nu har du möjlighet att bo i jobba i Medelhavspärlan Aten samtidigt som du jobbar som Säljare mot den Svenska marknaden hos vår internationella kund.",
     promoted: "true",
     cityName: "Aten",
     countryName: "Grekland",

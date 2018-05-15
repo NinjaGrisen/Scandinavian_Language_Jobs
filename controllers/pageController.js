@@ -35,34 +35,69 @@ exports.startPage = (req, res) => {
     jobs,
     promotedWork,
     cities,
-    title: "Om oss"
+    title: "Om oss",
+    titleSeo: "Scandinavian Language Jobs"
   });
 };
 
 exports.findJobs = (req, res) => {
-  res.render("jobs", { title: "För arbetssökande", jobs });
+  res.render("jobs", {
+    title: "För arbetssökande",
+    jobs,
+    titleSeo: "Jobba utomlands"
+  });
 };
 exports.findJob = (req, res) => {
-  console.log(decodeURI(req.params.work.toLowerCase()));
+  //const job = jobs[req.params.work];
+  const job = getJob();
 
-  console.log(req.params.work.toLowerCase());
-
-  const job = jobs[req.params.work.toLowerCase()];
-
-  res.render("job", { job, title: job.name });
+  function getJob() {
+    for (let i = 0; i < Object.entries(jobs).length; i++) {
+      if (
+        encodeURI(
+          Object.entries(jobs)
+            [i][1].name.replace(/å/g, "a")
+            .replace(/Å/g, "A")
+            .replace(/ä/g, "a")
+            .replace(/Ä/g, "A")
+            .replace(/ö/g, "o")
+            .replace(/Ö/g, "O")
+        )
+          .toLowerCase()
+          .replace(/%20/g, "_") == req.params.work
+      ) {
+        return Object.entries(jobs)[i][1];
+      }
+    }
+  }
+  res.render("job", {
+    job,
+    title: job.name,
+    titleSeo: `${job.name} ${job.titleSeo} `
+  });
 };
 
 exports.findStaff = (req, res) => {
-  res.render("staff", { jobs, title: "For employers" });
+  res.render("staff", {
+    jobs,
+    title: "For employers",
+    titleSeo: "For Employers"
+  });
 };
 
 exports.city = (req, res) => {
   const city = cities[req.params.city.toLowerCase()];
-  res.render("city", { title: req.params.city, city, jobs });
+  let titleSeo = "";
+  if (city.name == "St Julians") {
+    titleSeo = "Jobba på Malta";
+  } else {
+    titleSeo = `Jobba i ${city.name}`;
+  }
+  res.render("city", { title: req.params.city, city, jobs, titleSeo });
 };
 
 exports.contact = (req, res) => {
-  res.render("contact", { title: "contact" });
+  res.render("contact", { title: "contact", titleSeo: "Remove me" });
 };
 
 exports.sendMailWithoutFile = (req, res) => {
@@ -147,7 +182,7 @@ exports.sendMail = async (req, res) => {
   };
   let cv = req.files["cv"][0].originalname.split(".");
   let pb = req.files["pb"][0].originalname.split(".");
-  console.log(req.files);
+
   pb = pb[pb.length - 1];
   cv = cv[cv.length - 1];
   if (

@@ -6,7 +6,7 @@ const cities = {
     thumb: "/images/athens-thumb.jpg",
     country: "Grekland",
     desc:
-      "Aten med sina fyra miljoner invånare är en stad full med historia och arkitektur att uppleva. Inför Aten-OS rustades staden upp och är idag en modern Europeisk storstad med ett härligt medelhavsklimat, ett nattliv och kulturliv i världsklass. Vår kund har sitt största kontor i Aten och där jobbar människor från en mäng länder i hela Europa. Är du intresserad av att få vänner från olika länder med olika kulturell bakgrund? Dp är Aten staden för dig! Vi som jobbar på Scandinavian Language Jobs har själva erfarenhet av att bo och jobba i Aten, så alla frågor du kan tänkas ha tror vi kunna svara på."
+      "Aten med sina fyra miljoner invånare är en stad full med historia och arkitektur att uppleva. Inför Aten-OS rustades staden upp och är idag en modern Europeisk storstad med ett härligt medelhavsklimat, ett nattliv och kulturliv i världsklass. Vår kund har sitt största kontor i Aten och där jobbar människor från en mäng länder i hela Europa. Är du intresserad av att få vänner från olika länder med olika kulturell bakgrund? Då är Aten staden för dig! Vi som jobbar på Scandinavian Language Jobs har själva erfarenhet av att bo och jobba i Aten, så alla frågor du kan tänkas ha tror vi kunna svara på."
   },
 
   lissabon: {

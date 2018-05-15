@@ -1,12 +1,12 @@
 extends layout
 
 block content
-   div(style="background-image: url(#{job.image}" class="job-desc__img")
+   div(style="background-image: url(#{job.image}" class="job-desc__img" title="#{job.imgAlt}")
       h1= title
    .text-block
       
       if(job.html)
-         !{job.html}
+         | !{job.html}
 
    form(action="sendWithFile", 
       method="post",
@@ -25,7 +25,7 @@ block content
       div.form__input--text-area
          label(for="textarea") Lägg på ett meddelande
          textarea(name="textarea", cols="30", rows="10" placeholder="Meddelande")
-      div
+      div.form__checkbox-wrapper
          input(type="checkbox" required)
          span
             |  Jag har läst och accepterar 
@@ -59,7 +59,7 @@ block content
       div.form__input--text-area
          label(for="textarea") Lägg på ett meddelande
          textarea(name="textarea", cols="30", rows="10" placeholder="Meddelande")
-      div
+      div.form__checkbox-wrapper
          input(type="checkbox" required)
          span
             |  Jag har läst och accepterar 

@@ -54,13 +54,20 @@ body {
   position: fixed;
   display: flex;
   flex-direction: column;
-  padding: 16px 0;
-  height: 100vh;
-  background: white;
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);
   width: 241px;
-  transition: all 0.25s ease;
+  height: 100vh;
+  padding: 16px 0;
+  background: white;
+  transition: transform 0.25s ease;
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);
   z-index: 9; }
+  .header img {
+    max-width: calc(82% - 12px);
+    display: block;
+    margin: 0 auto 24px; }
+    @media (max-width: 870px) {
+      .header img {
+        margin: 55px auto 24px; } }
   @media (max-width: 870px) {
     .header {
       transform: translateX(-100%); }
@@ -181,6 +188,11 @@ body {
   background: #fcfcfc;
   border: 3px solid white;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1), -1px -1px 3px rgba(0, 0, 0, 0.1); }
+  .job__item h2,
+  .job__item h3 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-bottom: 7px; }
   @media (pointer: fine) {
     .job__item:hover {
       background: #dbf4fd;
@@ -210,11 +222,12 @@ body {
   .job__item.job__item--promoted:after {
     color: rgba(0, 0, 0, 0.1); }
   .job__item a {
+    position: relative;
     display: block;
     height: 100%;
     color: black;
     text-decoration: none;
-    padding: 60px 12px 12px; }
+    padding: 60px 12px 47px; }
     @media (pointer: fine) {
       .job__item a:hover .job__arrow {
         opacity: 1; } }
@@ -235,10 +248,14 @@ body {
     pointer-events: none; }
 
 .job__location {
+  position: absolute;
+  bottom: 11px;
   margin-bottom: 0;
   font-size: 0.8rem;
   line-height: 1rem;
   color: rgba(0, 0, 0, 0.3); }
+  .job__location--country {
+    bottom: 30px; }
 
 .job__arrow {
   float: right;
@@ -389,10 +406,13 @@ body {
         width: 100%;
         padding: 6px;
         border: 1px solid rgba(0, 0, 0, 0.2); }
+  .form__checkbox-wrapper {
+    width: 100%; }
   .form button {
     border: none;
     background: #dbf4fd;
     padding: 13px 30px;
+    margin-top: 25px;
     font-weight: 600;
     font-family: "Inconsolata", monospace;
     font-size: 1rem;
@@ -409,8 +429,10 @@ body {
 
 .gdpr__span {
   font-weight: bold;
-  border-bottom: 2px solid #dbf4fd;
   cursor: pointer; }
+  @media (pointer: fine) {
+    .gdpr__span:hover {
+      border-bottom: 2px solid black; } }
 
 .gdpr__module {
   position: fixed;
@@ -453,7 +475,7 @@ body {
 .job-desc__img {
   width: 100%;
   height: 0;
-  padding-bottom: 50vh;
+  padding-bottom: 26%;
   margin-bottom: 25px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -461,7 +483,7 @@ body {
   .job-desc__img h1 {
     position: absolute;
     left: 40px;
-    top: 40px;
+    top: 15px;
     background: white;
     padding: 12px;
     font-size: 4vw; }

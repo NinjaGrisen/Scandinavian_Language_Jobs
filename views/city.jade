@@ -12,9 +12,9 @@ block content
     each job in jobs
       if job.countryName == city.country
         div.job__item.job__item--country-page
-          a(href="/find-job/#{job.slug}")
+          a(href="/find-job/#{encodeURI(job.name.replace(/å/g, 'a').replace(/Å/g, 'A').replace(/ä/g, 'a').replace(/Ä/g, 'A').replace(/ö/g, 'o').replace(/Ö/g, 'O')).toLowerCase().replace(/%20/g, '_')}")
             h2= job.name
             p= job.shortDesc
-            p(class="job__location")= job.cityName + ' -'
+            p(class="job__location job__location--country")= job.cityName + ' -'
             p(class="job__location")= job.countryName
             span.job__arrow &rarr;

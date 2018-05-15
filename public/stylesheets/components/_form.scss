@@ -39,10 +39,15 @@
     }
   }
 
+  &__checkbox-wrapper {
+    width: 100%;
+  }
+
   button {
     border: none;
     background: $color-main;
     padding: 13px 30px;
+    margin-top: 25px;
     font-weight: 600;
     font-family: "Inconsolata", monospace;
     font-size: 1rem;
@@ -70,8 +75,12 @@
 .gdpr {
   &__span {
     font-weight: bold;
-    border-bottom: 2px solid $color-main;
     cursor: pointer;
+    @media (pointer: fine) {
+      &:hover {
+        border-bottom: 2px solid black;
+      }
+    }
   }
   &__module {
     position: fixed;

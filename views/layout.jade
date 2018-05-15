@@ -1,9 +1,14 @@
 doctype html
 html
   head
-    title= title
+    title= titleSeo
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name="viewport" content="width=device-width")
+    
+    link(rel="icon" type="image/png" href="/images/favicon-16.png" sizes="16x16")
+    link(rel="icon" type="image/png" href="/images/favicon-96.png" sizes="96x96")
+    link(rel="icon" type="image/png" href="/images/favicon-192.png" sizes="192x192")
+    link(rel="icon" type="image/png" href="/images/favicon-32.png" sizes="32x32")
     
   body
       block messages
@@ -20,6 +25,8 @@ html
         span.toggle-menu__icon
       block header
         div.header
+          img(src="/images/logo.png", alt="Scandinavian Language Jobs Logo")
+        
           nav
             each item in h.menu
               a(href="#{item.slug}")=item.title
