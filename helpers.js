@@ -3,7 +3,7 @@ exports.dump = obj => JSON.stringify(obj, null, 2);
 exports.menu = [
   { slug: "/", title: "Hem" },
   { slug: "/find-jobs", title: "Lediga jobb" },
-  { slug: "/find-staff", title: "Find staff" }
+  { slug: "/find-staff", title: "For employers" }
 ];
 
 exports.cities = [

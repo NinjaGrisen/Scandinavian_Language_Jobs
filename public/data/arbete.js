@@ -40,7 +40,8 @@ const jobs = {
        <li>Teamplayer.</li>
     </ul>
     
-    <p>PS. Vill du flytta till Malta med en vän? Sök då båda två. Vår kunds kundtjänst-team växer och de söker mer än en ny medarbetare. </p>`
+    <p>PS. Vill du flytta till Malta med en vän? Sök då båda två. Vår kunds kundtjänst-team växer och de söker mer än en ny medarbetare. </p>
+    <p>Varmt välkommen med din ansökan!</p>`
   },
   1: {
     name: "Svensktalande Game Presenter",

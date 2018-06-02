@@ -42,7 +42,7 @@ exports.startPage = (req, res) => {
 
 exports.findJobs = (req, res) => {
   res.render("jobs", {
-    title: "För arbetssökande",
+    title: "Lediga jobb",
     jobs,
     titleSeo: "Jobba utomlands"
   });
