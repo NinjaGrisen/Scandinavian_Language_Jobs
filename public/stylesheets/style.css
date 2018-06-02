@@ -25,8 +25,7 @@ h1 {
   font-size: 3rem;
   margin-bottom: 1.2rem;
   color: black;
-  text-align: center;
-  text-transform: capitalize; }
+  text-align: center; }
   @media (max-width: 870px) {
     h1 {
       margin-top: 60px;
@@ -64,10 +63,14 @@ body {
   .header img {
     max-width: calc(82% - 12px);
     display: block;
-    margin: 0 auto 24px; }
+    margin: 0 auto; }
     @media (max-width: 870px) {
       .header img {
         margin: 55px auto 24px; } }
+  .header__slj-text {
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: bold; }
   @media (max-width: 870px) {
     .header {
       transform: translateX(-100%); }
@@ -300,6 +303,10 @@ body {
     @media (max-width: 870px) {
       .city__image-content h3 {
         margin-top: 50px; } }
+
+@media (max-width: 870px) {
+  h1.city__malta-heading {
+    margin-top: 50px; } }
 
 .city-promo__wrapper {
   display: flex;

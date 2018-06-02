@@ -26,7 +26,8 @@ html
       block header
         div.header
           img(src="/images/logo.png", alt="Scandinavian Language Jobs Logo")
-        
+          p.header__slj-text Scandinavian Language Jobs
+            
           nav
             each item in h.menu
               a(href="#{item.slug}")=item.title
@@ -34,6 +35,7 @@ html
           nav.cities
             each city in h.cities
               a(href="#{city.slug}")=city.title
+
       div.wrapper
         block content
     

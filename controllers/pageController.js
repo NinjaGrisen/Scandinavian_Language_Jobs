@@ -35,7 +35,7 @@ exports.startPage = (req, res) => {
     jobs,
     promotedWork,
     cities,
-    title: "Om oss",
+    title: "Scandinavian Language Jobs",
     titleSeo: "Scandinavian Language Jobs"
   });
 };
@@ -81,7 +81,7 @@ exports.findStaff = (req, res) => {
   res.render("staff", {
     jobs,
     title: "For employers",
-    titleSeo: "For Employers"
+    titleSeo: "For employers"
   });
 };
 

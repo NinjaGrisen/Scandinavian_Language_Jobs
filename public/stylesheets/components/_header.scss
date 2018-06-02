@@ -13,10 +13,16 @@
   img {
     max-width: calc(82% - 12px);
     display: block;
-    margin: 0 auto 24px;
+    margin: 0 auto;
     @media (max-width: 870px) {
       margin: 55px auto 24px;
     }
+  }
+
+  &__slj-text {
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: bold;
   }
 
   @media (max-width: 870px) {

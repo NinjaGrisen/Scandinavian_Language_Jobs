@@ -2,9 +2,13 @@ extends layout
 
 block content
   div(style="background-image: url(/images/athens.jpg)" class="city__img")
-    div.city__image-content
-      h3= city.country
-      h1= city.name
+    if city.country === 'Malta'
+      div.city__image-content
+         h1.city__malta-heading= city.country
+    else
+      div.city__image-content
+         h3= city.country
+         h1= city.name
   div.text-block
    p.city__desc= city.desc
 
