@@ -453,7 +453,9 @@ body {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   transform: translate(500%, -50%);
   transition: all 0.25s ease;
-  z-index: 100; }
+  z-index: 100;
+  max-height: 90vh;
+  overflow-y: scroll; }
   .gdpr__module__display {
     transform: translate(-50%, -50%); }
   .gdpr__module button {

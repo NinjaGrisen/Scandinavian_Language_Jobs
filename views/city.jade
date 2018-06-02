@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  div(style="background-image: url(/images/athens.jpg)" class="city__img")
+  div(style="background-image: url("+ city.image +")" class="city__img")
     if city.country === 'Malta'
       div.city__image-content
          h1.city__malta-heading= city.country

@@ -10,7 +10,6 @@ router.get("/find-jobs", pageController.findJobs);
 router.get("/find-job/:work", pageController.findJob);
 router.get("/find-staff", pageController.findStaff);
 router.get("/cities/:city", pageController.city);
-router.get("/contact", pageController.contact);
 
 router.post(
   "/sendWithFile",

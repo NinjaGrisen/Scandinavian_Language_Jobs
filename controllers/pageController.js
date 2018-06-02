@@ -96,10 +96,6 @@ exports.city = (req, res) => {
   res.render("city", { title: req.params.city, city, jobs, titleSeo });
 };
 
-exports.contact = (req, res) => {
-  res.render("contact", { title: "contact", titleSeo: "Remove me" });
-};
-
 exports.sendMailWithoutFile = (req, res) => {
   let companyName = "";
   if (req.body.companyName) {
