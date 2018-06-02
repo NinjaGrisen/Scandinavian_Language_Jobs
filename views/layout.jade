@@ -38,6 +38,16 @@ html
 
       div.wrapper
         block content
+        footer
+         div.cities__wrapper
+            h2 Jobba utomlands
+            nav.cities
+               each city in h.cities
+                 a(href="#{city.slug}")=city.title
+         div
+            h2.contact-heading Kontakta oss
+            a.contact(href="mailto:info@scandinavianlanguagejobs.com") info@scandinavianlanguagejobs.com
+         
     
     script(src="/javascripts/index.js")
     
