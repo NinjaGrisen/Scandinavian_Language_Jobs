@@ -85,7 +85,7 @@ const jobs = {
     titleSeo: " | Jobba i Lissabon",
     shortDesc:
       "Vi söker dig, Copywriter med intresse av SEO, till startup med mål om att förändra e-handeln i Sverige och övriga Europa.",
-    promoted: "true",
+    promoted: "false",
     cityName: "Lissabon",
     countryName: "Portugal",
     html: `<p>Vår kund är ett ungt och dynamiskt företag, grundat med ambitionen att göra e-handel enklare och smidigare för sina kunder. Du kommer vara del av ett hungrigt, ambitiöst marknadsteam där det är högt i tak och stor möjlighet att utvecklas. </p>
