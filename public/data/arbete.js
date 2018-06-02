@@ -1,5 +1,47 @@
 // This is just some sample data so you don't have to think of your own!
 const jobs = {
+  0: {
+    name: "Svensktalande Kundtjänstmedarbetare",
+    image: "/images/malta-rocks.jpg",
+    imgAlt: "Jobba på Malta",
+    titleSeo: " | Jobba på Malta",
+    shortDesc:
+      "Gör som 10 000 svenskar redan gör- flytta och bo på Malta under några år!",
+    promoted: "true",
+    cityName: "St Julians",
+    countryName: "Malta",
+    html: `<p>Gör som 10 000 svenskar redan gör- flytta och bo på Malta under några år!</p>
+
+    <p>Vår kund på Malta söker nu fler servicestjärnor till sitt Svenska kundtjänst-team. Som del av detta framgångsrika företag grundat i Sverige kommer du vara del av ett bolag som erbjuder sina anställda förmåner och karriärmöjligheter utöver det vanliga. Detta samtidigt som du lever på en medelhavsö med över 300 soldagar om året där ett av de officiella språken är Engelska. </p>
+    
+    <p class="job-desc__ul-heading">Som Kundtjänstmedarbetare hos vår kund kommer du:</p>
+    <ul class="job-desc__ul">
+       <li>Kommunicera med kunder via telefon, email eller chat. Detta mot den Svenska marknaden.</li>
+       <li>Hantera kunders förfrågningar med tålamod och empati.</li>
+       <li>Jobba mot kunder i social media. </li>
+       <li>Tillsammans med ditt team kontinuerligt förbättra processer och system. </li>
+       <li>Utvecklas och ta mer och mer ansvar inom bolaget vid intresse. </li>
+    </ul>
+    
+    <p class="job-desc__ul-heading">Vad vår kund erbjuder dig:</p>
+    <ul class="job-desc__ul">
+       <li>Konkurrenskraftig månadslön.</li>
+       <li>Generöst hjälp med flytt till Malta- flygbiljetter och boende första tre veckorna. </li>
+       <li>Privat sjukförsäkring.</li>
+       <li>Friskvårdsbidrag. </li>
+       <li>Mängde med sociala aktiviteter.</li>
+    </ul>
+    
+    <p class="job-desc__ul-heading">Vem är du?</p>
+    <ul class="job-desc__ul">
+       <li>Flytande i Svenska språket, hög nivå i Engelska.</li>
+       <li>Intresse av att arbeta roterande shift.</li>
+       <li>Kommunikativ förmåga.</li>
+       <li>Teamplayer.</li>
+    </ul>
+    
+    <p>PS. Vill du flytta till Malta med en vän? Sök då båda två. Vår kunds kundtjänst-team växer och de söker mer än en ny medarbetare. </p>`
+  },
   1: {
     name: "Svensktalande Game Presenter",
     image: "/images/malta-rocks.jpg",
