@@ -119,6 +119,9 @@ exports.sendMailWithoutFile = (req, res) => {
     auth: {
       user: process.env.MAIL,
       pass: process.env.MAIL_PASS
+    },
+    tls: {
+      rejectUnauthorized: false
     }
   });
 
@@ -157,6 +160,9 @@ exports.sendMail = async (req, res) => {
     auth: {
       user: process.env.MAIL,
       pass: process.env.MAIL_PASS
+    },
+    tls: {
+      rejectUnauthorized: false
     }
   });
 
@@ -167,44 +173,69 @@ exports.sendMail = async (req, res) => {
     html: output,
     attachments: [
       {
-        filename: req.files["cv"][0].originalname,
-        content: new Buffer(req.files["cv"][0].buffer)
+        filename: req.files["cv"] ? req.files["cv"][0].originalname : "",
+        content: req.files["cv"] ? new Buffer(req.files["cv"][0].buffer) : ""
       },
       {
-        filename: req.files["pb"][0].originalname,
-        content: new Buffer(req.files["pb"][0].buffer)
+        filename: req.files["pb"] ? req.files["pb"][0].originalname : "",
+        content: req.files["pb"] ? new Buffer(req.files["pb"][0].buffer) : ""
       }
     ]
   };
-  let cv = req.files["cv"][0].originalname.split(".");
-  let pb = req.files["pb"][0].originalname.split(".");
 
-  pb = pb[pb.length - 1];
-  cv = cv[cv.length - 1];
-  if (
-    cv == "doc" ||
-    cv == "docx" ||
-    (cv == "pdf" && pb == "doc") ||
-    pb == "docx" ||
-    pb == "pdf"
-  ) {
-    if (
-      req.files["cv"][0].size > process.env.FILE_SIZE ||
-      req.files["pb"][0].size > process.env.FILE_SIZE
-    ) {
-      req.flash("error", "Filen är för stor, får inte vara större än 1mb");
-      res.redirect("back");
-    }
+  let cv = null;
+  let pb = null;
+
+  function sendMail() {
     transporter.sendMail(mailOptions, function(err, info) {
       if (err) {
-        req.flash("error", err);
+        console.log(err);
+        req.flash(
+          "error",
+          "Någonting gick fel på vår sida, återstår felet hör gärna av dig på info@scandinavianlanguagejobs.com"
+        );
       }
-      req.flash("success", "👍");
+      req.flash("success", "👍 Tack för att du hörde av dig!");
 
       res.redirect("back");
     });
-  } else {
-    req.flash("error", "Alla filer måste vara av typ pdf, doc eller docx");
-    res.redirect("back");
   }
+  if (req.files["cv"]) {
+    cv = req.files["cv"][0].originalname.split(".");
+    cv = cv[cv.length - 1];
+  }
+
+  if (req.files["pb"]) {
+    pb = req.files["pb"][0].originalname.split(".");
+    pb = pb[pb.length - 1];
+  }
+
+  if (cv != null) {
+    console.log(cv == "pdf");
+    if (cv != "pdf" && cv != "docx" && cv != "doc") {
+      req.flash("error", "Ditt CV måste vara av typ doc, docx eller pdf");
+      res.redirect("back");
+    }
+    if (req.files["cv"][0].size > process.env.FILE_SIZE) {
+      req.flash("error", "Ditt CV får inte vaar större än 1mb");
+      res.redirect("back");
+    }
+  }
+
+  if (pb != null) {
+    console.log(pb == "pdf");
+    if (pb != "pdf" && pb != "docx" && pb != "doc") {
+      req.flash(
+        "error",
+        "Ditt personliga brev måste vara av typ doc, docx eller pdf"
+      );
+      res.redirect("back");
+    }
+    if (req.files["pb"][0].size > process.env.FILE_SIZE) {
+      req.flash("error", "Ditt personliga brev får inte vaar större än 1mb");
+      res.redirect("back");
+    }
+  }
+
+  sendMail();
 };
